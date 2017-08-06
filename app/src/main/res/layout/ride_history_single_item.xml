@@ -75,15 +75,15 @@
 
 
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
                         android:id="@+id/driverIcon"
-                        android:layout_alignParentTop="true"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="7dp"
-                        android:background="#00CC00" />
+                        android:src="@drawable/user" />
 
                     <TextView
                         android:id="@+id/driver_name"
@@ -105,15 +105,15 @@
 
 
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
                         android:id="@+id/vehicleIcon1"
-                        android:layout_alignParentTop="true"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="7dp"
-                        android:background="#00CC00" />
+                        android:src="@drawable/car" />
 
                     <TextView
                         android:id="@+id/vehicle_name"
@@ -138,12 +138,12 @@
                         android:id="@+id/dateIcon1"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
+                        android:src="@drawable/calendar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginTop="7dp"
-                        android:background="#00CC00" />
+                        android:layout_marginTop="7dp" />
 
                     <TextView
                         android:id="@+id/ride_date"
@@ -173,25 +173,25 @@
 
 
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:id="@+id/driverIcon1"
-                        android:layout_alignParentTop="true"
+                        android:id="@+id/rideamounticon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="7dp"
-                        android:background="#00CC00" />
+                        android:src="@drawable/notes" />
 
                     <TextView
                         android:id="@+id/ride_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/driverIcon1"
+                        android:layout_alignTop="@+id/rideamounticon"
                         android:layout_marginBottom="7dp"
                         android:layout_marginLeft="5dp"
-                        android:layout_toEndOf="@+id/driverIcon1"
-                        android:layout_toRightOf="@+id/driverIcon1"
+                        android:layout_toEndOf="@+id/rideamounticon"
+                        android:layout_toRightOf="@+id/rideamounticon"
                         android:text="Ride Amount"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -203,15 +203,15 @@
 
 
                     <ImageView
+                        android:id="@+id/vehicleIcon"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:id="@+id/vehicleIcon"
-                        android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="7dp"
-                        android:background="#00CC00" />
+                        android:src="@drawable/payment_method" />
 
                     <TextView
                         android:id="@+id/payment_method"
@@ -233,25 +233,25 @@
 
 
                     <ImageView
+                        android:id="@+id/ridestatus"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:id="@+id/dateIcon"
-                        android:layout_alignParentTop="true"
+                        android:src="@drawable/icon"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginTop="7dp"
-                        android:background="#00CC00" />
+                        android:layout_marginTop="7dp" />
 
                     <TextView
                         android:id="@+id/ride_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/dateIcon"
+                        android:layout_alignTop="@+id/ridestatus"
                         android:layout_marginBottom="7dp"
                         android:layout_marginLeft="5dp"
-                        android:layout_toEndOf="@+id/dateIcon"
-                        android:layout_toRightOf="@+id/dateIcon"
+                        android:layout_toEndOf="@+id/ridestatus"
+                        android:layout_toRightOf="@+id/ridestatus"
                         android:text="Ride Status"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 

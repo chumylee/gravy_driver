@@ -68,6 +68,7 @@ public class RideHistoryActivity extends AppCompatActivity {
             session = new SessionManagement(RideHistoryActivity.this);
             progressDialog = new ProgressDialog(RideHistoryActivity.this);
             progressDialog.setMessage("Fetching ride history. Please wait...");
+            progressDialog.setCancelable(false);
             progressDialog.show();
         }
 
