@@ -88,6 +88,12 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseInstanceId.getInstance().getToken();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        // super.onBackPressed(); // Comment this super call to avoid calling finish() or fragmentmanager's backstack pop operation.
+    }
+
     private class LoginDriver extends AsyncTask<Void, Void, Void> {
 
         String json_result,id,trip_count,account_balance,first_name,car_name,rating;

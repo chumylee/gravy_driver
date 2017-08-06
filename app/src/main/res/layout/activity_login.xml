@@ -40,16 +40,16 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Email Address"
+            android:background="@drawable/textbox"
+            android:hint="Username"
             android:imeActionId="@+id/email"
             android:imeActionLabel="Email Address"
             android:imeOptions="actionUnspecified"
             android:inputType="textEmailAddress"
             android:maxLines="1"
+            android:padding="5dp"
             android:singleLine="true"
-            android:background="@drawable/textbox"
-            android:textSize="14dp"
-            android:padding="5dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/password"
