@@ -13,10 +13,10 @@ import java.util.HashMap;
 public class SessionManagement {
 
     // Shared Preferences
-    SharedPreferences pref;
+    SharedPreferences pref,pref2;
 
     // Editor for Shared preferences
-    Editor editor;
+    Editor editor, editor2;
 
     // Context
     Context _context;
@@ -26,6 +26,7 @@ public class SessionManagement {
 
     // Sharedpref file name
     private static final String PREF_NAME = "GravyDriverPref";
+    private static final String PREF_NAME2= "GravyDriverToken";
 
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
@@ -43,7 +44,9 @@ public class SessionManagement {
     public SessionManagement(Context context){
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+        pref2 = _context.getSharedPreferences(PREF_NAME2, PRIVATE_MODE);
         editor = pref.edit();
+        editor2 = pref2.edit();
     }
 
     /**
@@ -64,9 +67,20 @@ public class SessionManagement {
         editor.putString(FIRST_NAME, first_name);
         editor.putString(CAR_NAME, car_name);
         editor.putString(RATING, rating);
+        storeToken();
 
         // commit changes
         editor.commit();
+        editor2.commit();
+    }
+
+    public String getToken(){
+        return pref2.getString("Token", null);
+    }
+
+    public void storeToken(){
+        editor2.putString("Token", Globals.getInstance().getToken());
+        editor2.commit();
     }
 
     /**

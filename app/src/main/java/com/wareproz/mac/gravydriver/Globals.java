@@ -13,10 +13,10 @@ public class Globals{
     // Restrict the constructor from being instantiated
     private Globals(){}
 
-    public void setToken(String d){
+    public synchronized void setToken(String d){
         this.Token=d;
     }
-    public String getToken(){
+    public synchronized String getToken(){
         return this.Token;
     }
 

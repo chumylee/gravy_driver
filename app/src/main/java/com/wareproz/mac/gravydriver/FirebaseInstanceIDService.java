@@ -1,7 +1,15 @@
 package com.wareproz.mac.gravydriver;
 
+import android.os.Handler;
+import android.widget.Toast;
+
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -20,7 +28,7 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
         registerToken(token);
     }
 
-    private void registerToken(String token) {
+    private void registerToken(final String token) {
 
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
