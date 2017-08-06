@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wareproz.mac.gravydriver.RideRequestActivity">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="#222526">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#181A1B"
+            android:id="@+id/relativeLayout"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="NEW REQUEST (CASH)"
+                android:id="@+id/titlenmode"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorGrey"
+                android:singleLine="true" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/address"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:maxLines="5"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorGrey2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Classic Ride"
+            android:id="@+id/ridetype"
+            android:layout_below="@+id/address"
+            android:layout_centerHorizontal="true"
+            android:textColor="#7DC24F"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="4.5"
+            android:id="@+id/riderrating"
+            android:textColor="@color/colorGrey"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/ridetype" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:id="@+id/imageView18"
+            android:src="@drawable/star"
+            android:layout_below="@+id/ridetype"
+            android:layout_toRightOf="@+id/riderrating"
+            android:layout_toEndOf="@+id/riderrating"
+            android:layout_marginTop="3dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Accept"
+            android:id="@+id/btnaccept"
+            android:background="#7DC24F"
+            android:textColor="#fff"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/address"
+            android:layout_alignStart="@+id/address"
+            android:layout_marginBottom="15dp"
+            android:layout_toLeftOf="@+id/riderrating"
+            android:layout_toStartOf="@+id/riderrating" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Decline"
+            android:id="@+id/btndecline"
+            android:background="#BE2212"
+            android:textColor="#fff"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/address"
+            android:layout_alignEnd="@+id/address"
+            android:layout_marginBottom="15dp"
+            android:singleLine="false"
+            android:layout_toRightOf="@+id/riderrating"
+            android:layout_toEndOf="@+id/riderrating" />
+
+    </RelativeLayout>
+</RelativeLayout>

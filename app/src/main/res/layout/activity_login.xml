@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wareproz.mac.gravydriver.LoginActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView17"
+        android:src="@drawable/gravy_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="---------- LOG IN AS DRIVER ----------"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/imageView17"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorGrey2" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Email Address"
+            android:imeActionId="@+id/email"
+            android:imeActionLabel="Email Address"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:background="@drawable/textbox"
+            android:textSize="14dp"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:imeActionId="@+id/login"
+            android:imeActionLabel="Password"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:background="@drawable/textbox"
+            android:textSize="14dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp" />
+
+        <Button
+            android:id="@+id/login_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:text="SIGN IN"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:background="#7DC24F" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="forgot password"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#005A98"
+            android:clickable="true"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+</RelativeLayout>

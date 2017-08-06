@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "521962248387",
+    "firebase_url": "https://gravy-ab12f.firebaseio.com",
+    "project_id": "gravy-ab12f",
+    "storage_bucket": "gravy-ab12f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521962248387:android:b95cde32a3aaaea2",
+        "android_client_info": {
+          "package_name": "com.wareproz.mac.gravydriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521962248387-8ktvdncnvv17l8n5ooat041881dosjs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBah8PHeQCNQTb_yNohzx-rnaK26W3bAPg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

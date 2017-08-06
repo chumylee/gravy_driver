@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wareproz.mac.gravydriver.WaitForRiderActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/relativeLayout15"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Gravy Driver"
+            android:id="@+id/textView23"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorGrey" />
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/relativeLayout15"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/relativeLayout17" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/relativeLayout17"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#FFFFFF"
+            android:id="@+id/relativeLayout16"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" >
+
+            <ImageView
+                android:id="@+id/user_pic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profilepic"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/imageView20"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/telephone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="1 mins"
+                android:id="@+id/eta"
+                android:layout_alignTop="@+id/textView10"
+                android:layout_alignRight="@+id/imageView20"
+                android:layout_alignEnd="@+id/imageView20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Pick up"
+                android:id="@+id/textView10"
+                android:layout_alignTop="@+id/user_pic"
+                android:layout_toRightOf="@+id/user_pic"
+                android:layout_toEndOf="@+id/user_pic"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:textColor="#7DC24F"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Chumylee"
+                android:id="@+id/user_name"
+                android:layout_alignTop="@+id/eta"
+                android:layout_toRightOf="@+id/user_pic"
+                android:layout_toEndOf="@+id/user_pic"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact"
+                android:background="#00000000"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/user_pic" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@+id/relativeLayout16"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout18"
+            android:background="@drawable/rectangle_background" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="WAIT FOR RIDER"
+                android:id="@+id/textView27"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="RIDER HAS BEEN INFORMED"
+                android:id="@+id/textView29"
+                android:layout_below="@+id/textView27"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <Button
+            style="?android:textAppearanceSmall"
+            android:id="@+id/startTrip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="START TRIP"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:background="#7DC24F"
+            android:layout_below="@+id/relativeLayout18"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Cancel Trip"
+            android:id="@+id/cancelTrip"
+            android:layout_below="@+id/startTrip"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/holo_red_dark" />
+
+
+    </RelativeLayout>
+</RelativeLayout>
