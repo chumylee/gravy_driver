@@ -1,0 +1,268 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstlayout"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/rectangle_background">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:id="@+id/imageView3"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/location"
+            android:baselineAlignBottom="true" />
+
+        <TextView
+            android:id="@+id/pickup_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="-10dp"
+            android:layout_toEndOf="@+id/imageView3"
+            android:layout_toRightOf="@+id/imageView3"
+            android:text="11 MAJEKODUNMI STREET, ALLEN AVENUE, IKEJA, LAGOS STATE"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="11 MAJEKODUNMI STREET, ALLEN AVENUE, IKEJA, LAGOS STATE"
+            android:id="@+id/dropoff_location"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_toRightOf="@+id/imageView3"
+            android:layout_toEndOf="@+id/imageView3"
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginRight="5dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/dropoff_location"
+            android:layout_marginTop="20dp"
+            android:background="#F2F2F2"
+            android:id="@+id/view" />
+
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_below="@+id/view"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/driverIcon"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#00CC00" />
+
+                    <TextView
+                        android:id="@+id/driver_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/driverIcon"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/driverIcon"
+                        android:layout_toRightOf="@+id/driverIcon"
+                        android:text="Drivers Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/vehicleIcon1"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#00CC00" />
+
+                    <TextView
+                        android:id="@+id/vehicle_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/vehicleIcon1"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/vehicleIcon1"
+                        android:layout_toRightOf="@+id/vehicleIcon1"
+                        android:text="Vehicle Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:id="@+id/dateIcon1"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#00CC00" />
+
+                    <TextView
+                        android:id="@+id/ride_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/dateIcon1"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/dateIcon1"
+                        android:layout_toRightOf="@+id/dateIcon1"
+                        android:text="Ride Date"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/driverIcon1"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#00CC00" />
+
+                    <TextView
+                        android:id="@+id/ride_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/driverIcon1"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/driverIcon1"
+                        android:layout_toRightOf="@+id/driverIcon1"
+                        android:text="Ride Amount"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/vehicleIcon"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#00CC00" />
+
+                    <TextView
+                        android:id="@+id/payment_method"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/vehicleIcon"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/vehicleIcon"
+                        android:layout_toRightOf="@+id/vehicleIcon"
+                        android:text="Payment Method"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/dateIcon"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#00CC00" />
+
+                    <TextView
+                        android:id="@+id/ride_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/dateIcon"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toEndOf="@+id/dateIcon"
+                        android:layout_toRightOf="@+id/dateIcon"
+                        android:text="Ride Status"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
