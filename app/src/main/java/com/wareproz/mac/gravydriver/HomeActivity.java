@@ -2,10 +2,12 @@ package com.wareproz.mac.gravydriver;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -57,11 +59,16 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     ImageView menu;
     int arrived = 0;
     private ProgressDialog pDialog;
+    Context context;
+    LocationManager locationManager;
+    boolean GpsStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        context = getApplicationContext();
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
@@ -156,6 +163,14 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 popup.show();//showing popup menu
             }
         });
+
+        locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if(GpsStatus != true){
+            Intent gpsOptionsIntent = new Intent(
+                    android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(gpsOptionsIntent);
+        }
 
     }
 
