@@ -333,7 +333,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         MarkerOptions options = new MarkerOptions()
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.driver_marker))
+                .flat(true)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_car))
                 .position(latLng);
         driverMarker =  mGoogleMap.addMarker(options);
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
