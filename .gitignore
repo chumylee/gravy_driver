@@ -7,3 +7,5 @@
 /build
 /captures
 app/libs/
+app/build.gradle
+.idea/
