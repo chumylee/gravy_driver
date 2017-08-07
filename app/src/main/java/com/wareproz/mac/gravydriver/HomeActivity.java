@@ -10,6 +10,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -114,7 +115,11 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         car_name = user.get(SessionManagement.CAR_NAME);
         rating = user.get(SessionManagement.RATING);
 
-        txtTripCount.setText(trip_count + "rides(s)");
+        if(Integer.parseInt(trip_count)>1){
+            txtTripCount.setText(trip_count + " rides)");
+        }else{
+            txtTripCount.setText(trip_count + " ride");
+        }
         txtAccountBalance.setText(account_balance);
         txtFirstName.setText(first_name);
         txtCarName.setText(car_name);
@@ -173,6 +178,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
+
 
 
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -306,6 +312,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onResume() {
         super.onResume();
         mGoogleApiClient.connect();
+        new GetDriverDetailsTask().execute();
     }
 
     @Override
@@ -386,5 +393,60 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onLocationChanged(Location location) {
         handleNewLocation(location);
+    }
+
+    private class GetDriverDetailsTask extends AsyncTask<Void,Void,Void>{
+        private String tripCount, accountBalance, rating;
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            txtRating.setText(rating);
+            if(Integer.parseInt(trip_count)>1){
+                txtTripCount.setText(tripCount + " rides)");
+            }else{
+                txtTripCount.setText(tripCount + " ride");
+            }
+            txtAccountBalance.setText(accountBalance);
+            session.updateDriverAccountBalance(accountBalance);
+            session.updateDriverRating(rating);
+            session.updateDriverTripCount(tripCount);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            HttpHandler http = new HttpHandler();
+            String url = "get_driver_details.php?username="+session.getUserDetails().get(SessionManagement.KEY_ID);
+            String response = http.makeServiceCall(url);
+            if(response != null) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    tripCount = jsonObject.getString("trip_count");
+                    accountBalance = jsonObject.getString("account_balance");
+                    rating = jsonObject.getString("rating");
+                } catch (final JSONException e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(),
+                                    "Json parsing error: " + e.getMessage(),
+                                    Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
+                }
+            }else{
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),
+                                "Unable to fetch driver details from server",
+                                Toast.LENGTH_LONG)
+                                .show();
+                    }
+                });
+            }
+            return null;
+        }
     }
 }

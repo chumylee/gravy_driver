@@ -184,5 +184,21 @@ public class SessionManagement {
         return pref.getBoolean(IS_LOGIN, false);
     }
 
+    public void updateDriverRating(String rating){
+        editor.putString(RATING, rating);
+        editor.commit();
+    }
+
+    public void updateDriverAccountBalance(String balance){
+        editor.putString(ACC_BAL, balance);
+        editor.commit();
+
+    }
+
+    public void updateDriverTripCount(String tripCount){
+        editor.putString(TRIP_COUNT, tripCount);
+        editor.commit();
+    }
+
 }
 

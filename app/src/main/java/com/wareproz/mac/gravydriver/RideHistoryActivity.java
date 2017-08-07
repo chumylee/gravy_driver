@@ -42,14 +42,6 @@ public class RideHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ride_history);
-//        pickupLocation = (TextView)findViewById(R.id.dropoff_location);
-//        dropoffLocation = (TextView)findViewById(R.id.dropoff_location);
-//        driversName = (TextView)findViewById(R.id.driver_name);
-//        vehicleName = (TextView)findViewById(R.id.vehicle_name);
-//        rideDate = (TextView)findViewById(R.id.vehicle_name);
-//        rideAmount = (TextView)findViewById(R.id.ride_amount);
-//        paymentMethod = (TextView)findViewById(R.id.payment_method);
-//        rideStatus = (TextView)findViewById(R.id.ride_status);
         rideHistoryListView = (ListView)findViewById(R.id.ride_history_list);
         historyList = new ArrayList<>();
         new RideHistoryAsyncTask().execute();
@@ -60,7 +52,6 @@ public class RideHistoryActivity extends AppCompatActivity {
         private ProgressDialog progressDialog;
         private SessionManagement session;
         int resultCount;
-//        private String pickupString,dropoffString,driversNameString,rideAmountString,vehicleNameString,paymentMethodString,rideStatusString,date;
 
         @Override
         protected void onPreExecute() {
@@ -78,7 +69,6 @@ public class RideHistoryActivity extends AppCompatActivity {
             Map<String,String> user = session.getUserDetails();
 
             String url = "driver_ride_history.php?uid="+user.get(SessionManagement.KEY_ID);
-//            String url = "driver_ride_history.php?uid=3";
             String jsonStr = httpHandler.makeServiceCall(url);
             if (jsonStr != null) {
                 try {
@@ -88,7 +78,7 @@ public class RideHistoryActivity extends AppCompatActivity {
                     JSONArray histories = jsonObj.getJSONArray("history");
                     resultCount = histories.length();
 
-                    // looping through All Contacts
+                    // looping through All histories
                     for (int i = 0; i < histories.length(); i++) {
                         JSONObject c = histories.getJSONObject(i);
 
