@@ -176,6 +176,11 @@ public class LoginActivity extends AppCompatActivity {
                 // Creating user login session and store some stuff
                 session.createLoginSession(email,id,trip_count,account_balance,first_name,car_name,rating);
 
+                //if token was null
+                if(Token == null){ //if token is null at point of login, start activity to update token once it becomes available
+                    Intent startUpdateTokenService = new Intent(LoginActivity.this, TokenUpdaterService.class);
+                    startService(startUpdateTokenService);
+                }
                 //open home page
                 Intent mIntent = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(mIntent);
