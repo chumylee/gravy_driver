@@ -14,5 +14,13 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/gravy_logo" />
 
-
+    <TextView
+        android:text="Copyright © 2017 GRAVY. All rights reserved."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#999"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/textView" />
 </RelativeLayout>
