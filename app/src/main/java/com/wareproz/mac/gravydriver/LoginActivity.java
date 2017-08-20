@@ -181,6 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent startUpdateTokenService = new Intent(LoginActivity.this, TokenUpdaterService.class);
                     startService(startUpdateTokenService);
                 }
+
                 //open home page
                 Intent mIntent = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(mIntent);

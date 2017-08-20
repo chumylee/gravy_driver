@@ -10,7 +10,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -160,6 +159,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             //make user offline by clearing token
                             new LogoutDriver().execute();
                             session.logoutUser();
+                            stopService(new Intent(getBaseContext(), DriverLocationUpdateService.class));
                         }
                         return true;
                     }
@@ -176,6 +176,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(gpsOptionsIntent);
         }
+
+        //start the service that updates the gps of the driver
+        startService(new Intent(getBaseContext(), DriverLocationUpdateService.class));
 
     }
 
