@@ -41,7 +41,7 @@ public class TokenUpdaterService extends IntentService {
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        handler = new Handler();
+//        handler = new Handler();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -53,7 +53,7 @@ public class TokenUpdaterService extends IntentService {
         Map<String,String> user = session.getUserDetails();
         String uid = user.get(SessionManagement.KEY_ID);
         final String url = "update_token.php?uid="+uid+"&token="+token;
-
+        handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {

@@ -102,29 +102,26 @@ public class SplashScreenActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            //do something with what is returned
-            if (json_app_version.equals(Integer.toString(APP_VERSION))){
-                // Creating user login session and store some stuff
-                //open home page
-                Intent mIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                startActivity(mIntent);
-                finish();
+            if(json_app_version != null) {
+                //do something with what is returned
+                if (!json_app_version.equals(Integer.toString(APP_VERSION))) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SplashScreenActivity.this);
+                    alertDialogBuilder.setMessage("An updated version of this app is available on the Appstore, kindly download an update");
+                    alertDialogBuilder.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    finish();
+                                }
+                            });
 
-            }else{
-                //
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SplashScreenActivity.this);
-                alertDialogBuilder.setMessage("An updated version of this app is available on the Appstore, kindly download an update");
-                alertDialogBuilder.setPositiveButton("Ok",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                finish();
-                            }
-                        });
-
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
             }
+            Intent mIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+            startActivity(mIntent);
+            finish();
         }
     }
 }
