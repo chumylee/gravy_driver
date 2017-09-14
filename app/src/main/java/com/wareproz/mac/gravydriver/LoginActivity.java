@@ -117,10 +117,6 @@ public class LoginActivity extends AppCompatActivity {
             Token = g.getToken();
             String url = "driver_login.php?username="+ email +"&password="+ password +"&role=2&token="+ Token;
             String jsonStr = sh.makeServiceCall(url);
-            if(Token == null){ //if token is null at point of login, start activity to update token once it becomes available
-                Intent startUpdateTokenService = new Intent(LoginActivity.this, TokenUpdaterService.class);
-                startService(startUpdateTokenService);
-            }
 
             if (jsonStr != null) {
                 try {

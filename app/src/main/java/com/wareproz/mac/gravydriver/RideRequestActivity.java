@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -151,22 +152,27 @@ public class RideRequestActivity extends Activity {
                 pDialog.dismiss();
 
             //do something with what is returned
-            if (json_result.equals("1")){
-                //driver enroute
-                Intent mIntent = new Intent(RideRequestActivity.this, EnrouteRiderActivity.class);
-                mIntent.putExtra("ride_id", ride_id);
-                mIntent.putExtra("pickup_gps", pickup_gps);
-                mIntent.putExtra("pickup_address", pickup_address);
-                mIntent.putExtra("rider_name", rider_name);
-                mIntent.putExtra("rider_picture", rider_picture);
-                mIntent.putExtra("rider_phone", rider_phone);
-                mIntent.putExtra("dropoff_gps", dropoff_gps);
-                mIntent.putExtra("dropoff_name", dropoff_name);
-                startActivity(mIntent);
-                finish();
+            if(json_result != null) {
+                if (json_result.equals("1")) {
+                    //driver enroute
+                    Intent mIntent = new Intent(RideRequestActivity.this, EnrouteRiderActivity.class);
+                    mIntent.putExtra("ride_id", ride_id);
+                    mIntent.putExtra("pickup_gps", pickup_gps);
+                    mIntent.putExtra("pickup_address", pickup_address);
+                    mIntent.putExtra("rider_name", rider_name);
+                    mIntent.putExtra("rider_picture", rider_picture);
+                    mIntent.putExtra("rider_phone", rider_phone);
+                    mIntent.putExtra("dropoff_gps", dropoff_gps);
+                    mIntent.putExtra("dropoff_name", dropoff_name);
+                    startActivity(mIntent);
+                    finish();
+                } else {
+                    //
+                    Toast.makeText(RideRequestActivity.this, "Ride Accepted By Another Driver", Toast.LENGTH_LONG).show();
+                    finish();
+                }
             }else{
-                //
-                Toast.makeText(RideRequestActivity.this,"Ride Accepted By Another Driver",Toast.LENGTH_LONG).show();
+                Toast.makeText(RideRequestActivity.this, "Unable to connect to server.", Toast.LENGTH_LONG).show();
                 finish();
             }
         }
