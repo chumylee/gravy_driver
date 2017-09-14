@@ -2,6 +2,7 @@ package com.wareproz.mac.gravydriver;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class TokenUpdaterService extends IntentService {
         String token = FirebaseInstanceId.getInstance().getToken();
         try {
             while (token == null) {
-                Thread.sleep(3000);
+                Thread.sleep(1500);
                 token = FirebaseInstanceId.getInstance().getToken();
             }
             updateTokenOnServer(token);
@@ -45,34 +46,22 @@ public class TokenUpdaterService extends IntentService {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    public void updateTokenOnServer(String token){
-        //update token on server
-        SessionManagement session = new SessionManagement(getApplicationContext());
-        Globals.getInstance().setToken(token);
-        session.storeToken();
-        Map<String,String> user = session.getUserDetails();
-        String uid = user.get(SessionManagement.KEY_ID);
-        final String url = "update_token.php?uid="+uid+"&token="+token;
-        handler = new Handler();
-        handler.post(new Runnable() {
+    public void updateTokenOnServer(final String token){
+
+        (new AsyncTask<Void,Void,Void>(){
             @Override
-            public void run() {
+            protected Void doInBackground(Void... params) {
+                SessionManagement session = new SessionManagement(getApplicationContext());
+                Globals.getInstance().setToken(token);
+                session.storeToken();
+                Map<String,String> user = session.getUserDetails();
+                String uid = user.get(SessionManagement.KEY_ID);
+                String url = "update_token.php?uid="+uid+"&token="+token;
+
                 HttpHandler http = new HttpHandler();
                 String response = http.makeServiceCall(url);
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    Toast.makeText(getApplicationContext(),
-                            jsonResponse.getString("message"),
-                            Toast.LENGTH_LONG)
-                            .show();
-
-                }catch (JSONException e){
-                    Toast.makeText(getApplicationContext(),
-                            "Json parsing error: " + e.getMessage(),
-                            Toast.LENGTH_LONG)
-                            .show();
-                }
+                return null;
             }
-        });
+        }).execute();
     }
 }
